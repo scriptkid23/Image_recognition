@@ -3,15 +3,15 @@ import cv2
 import numpy as np
 import pickle
 
-imagePath   = "D:\\code\\image_recognition\\imgTest\\test11.jpg"
-faceCascade = cv2.CascadeClassifier("face_recognition_image\\FaceDetect\\haarcascade_frontalface_default.xml") 
+imagePath   = "../test11.jpg"
+faceCascade = cv2.CascadeClassifier("../haarcascade_frontalface_default.xml") 
 image = cv2.imread(imagePath)
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("D:\\code\\image_recognition\\database\\trainner.yml")
+recognizer.read("../trainner.yml")
 labels = {"person_name": 1}
 
-with open("D:\\code\\image_recognition\\database\\labels.pickle",'rb') as f:
+with open("../labels.pickle",'rb') as f:
 
     og_labels = pickle.load(f)
     labels = {v:k for k, v in og_labels.items()}

@@ -6,7 +6,7 @@ import pickle
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(BASE_DIR,"images")
-face_cascade = cv2.CascadeClassifier('D:\\code\\ML_python\\cascardes\\data\\haarcascade_frontalface_alt2.xml')
+face_cascade = cv2.CascadeClassifier('../haarcascade_frontalface_alt2.xml')
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 
 current_id = 0 
@@ -43,7 +43,7 @@ for root,dirs,files in os.walk(image_dir):
 #print(y_labels)
 #print(x_train)
 
-with open("D:\\code\\image_recognition\\database\\labels.pickle",'wb') as f:
+with open("../labels.pickle",'wb') as f:
     pickle.dump(label_ids,f)
 recognizer.train(x_train,np.array(y_labels))
-recognizer.save("D:\\code\\image_recognition\\database\\trainner.yml")
+recognizer.save("../trainner.yml")
